@@ -6,7 +6,7 @@ defmodule TestTask.Repo.Migrations.CreateItems do
       add :id, :binary_id, primary_key: true
       add :name, :string
       add :price, :float
-      add :bougth, :boolean, default: false, null: false
+      add :bought, :boolean, default: false, null: false
 
       timestamps()
     end

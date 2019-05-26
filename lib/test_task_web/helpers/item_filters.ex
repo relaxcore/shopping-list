@@ -7,17 +7,17 @@ defmodule ItemFilters do
 
     Enum.reduce(args, query, fn {k, v}, query ->
       case k do
-        "bougth"   -> already_bougth(query, v)
+        "bought"   -> already_bought(query, v)
         "category" -> with_category(query, v)
         _          -> query
       end
     end)
   end
 
-  defp already_bougth(query, bougth) do
-    unless cast(:boolean, bougth) == :error  do
+  defp already_bought(query, bought) do
+    unless cast(:boolean, bought) == :error  do
       query
-      |> where([item], item.bougth == ^bougth)
+      |> where([item], item.bought == ^bought)
     else
       query
     end

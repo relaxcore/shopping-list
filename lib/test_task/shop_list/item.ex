@@ -11,7 +11,7 @@ defmodule TestTask.ShopList.Item do
   @foreign_key_type :binary_id
 
   schema "items" do
-    field :bougth, :boolean, default: false
+    field :bought, :boolean, default: false
     field :name, :string
     field :price, :float
     timestamps()
@@ -33,7 +33,7 @@ defmodule TestTask.ShopList.Item do
   @doc false
   def update_changeset(item, attrs) do
     item
-    |> cast(attrs, [:name, :price, :bougth, :category_id])
+    |> cast(attrs, [:name, :price, :bought, :category_id])
     |> assoc_constraint(:category)
     |> unique_constraint(:name)
     |> validate_number(:price, greater_than: 0)

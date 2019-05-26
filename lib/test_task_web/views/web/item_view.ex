@@ -18,7 +18,7 @@ defmodule TestTaskWeb.ItemView do
       id:       item.id,
       name:     item.name,
       price:    item.price,
-      bougth:   item.bougth,
+      bought:   item.bought,
       category: render_one(item.category, CategoryView, "category.json")
     }
   end
