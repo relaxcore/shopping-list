@@ -6,7 +6,22 @@ defmodule TestTask.ShopList do
   import Ecto.Query, warn: false
   alias TestTask.Repo
 
-  alias TestTask.ShopList.Item
+  alias TestTask.ShopList.{Item, Category}
+
+  @doc """
+  Returns the list of categories.
+
+  ## Examples
+
+      iex> list_categories()
+      [%Category{}, ...]
+
+  """
+  def list_categories do
+    Repo.all(Category)
+  end
+
+  ########################################
 
   @doc """
   Returns the list of items.

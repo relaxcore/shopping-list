@@ -9,6 +9,7 @@ defmodule TestTaskWeb.Router do
     pipe_through :api
     scope "/v1" do
       resources "/items", ItemController, except: [:new, :edit]
+      resources "/categories", CategoryController, only: [:index]
     end
   end
 end

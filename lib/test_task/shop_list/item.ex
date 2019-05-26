@@ -1,7 +1,10 @@
 defmodule TestTask.ShopList.Item do
   use Ecto.Schema
-  import Ecto.Changeset
 
+  import Ecto.Changeset
+  import Ecto.Query
+
+  alias TestTask.Repo
   alias TestTask.ShopList.Category
 
   @primary_key {:id, :binary_id, autogenerate: true}
@@ -19,17 +22,25 @@ defmodule TestTask.ShopList.Item do
   @doc false
   def create_changeset(item, attrs) do
     item
-    |> cast(attrs, [:name, :price])
+    |> cast(attrs, [:name, :price, :category_id])
+    |> assoc_constraint(:category)
     |> validate_required([:name, :price])
     |> unique_constraint(:name)
     |> validate_number(:price, greater_than: 0)
+    |> validate_inclusion(:category_id, category_ids())
   end
 
-    @doc false
-    def update_changeset(item, attrs) do
-      item
-      |> cast(attrs, [:name, :price, :bougth])
-      |> unique_constraint(:name)
-      |> validate_number(:price, greater_than: 0)
-    end
+  @doc false
+  def update_changeset(item, attrs) do
+    item
+    |> cast(attrs, [:name, :price, :bougth, :category_id])
+    |> assoc_constraint(:category)
+    |> unique_constraint(:name)
+    |> validate_number(:price, greater_than: 0)
+    |> validate_inclusion(:category_id, category_ids())
+  end
+
+  defp category_ids do
+    (from c in Category, select: c.id) |> Repo.all
+  end
 end

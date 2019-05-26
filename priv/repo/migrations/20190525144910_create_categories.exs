@@ -9,6 +9,8 @@ defmodule TestTask.Repo.Migrations.CreateCategories do
       timestamps()
     end
 
+    create unique_index(:categories, [:name])
+
     alter table(:items) do
       add :category_id, :binary_id
     end
