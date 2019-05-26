@@ -6,8 +6,8 @@ defmodule TestTaskWeb.ItemController do
 
   action_fallback TestTaskWeb.FallbackController
 
-  def index(conn, _params) do
-    items = ShopList.list_items()
+  def index(conn, params) do
+    items = ShopList.list_items(params)
 
     render(conn, "index.json", items: items)
   end

@@ -9,12 +9,11 @@ defmodule TestTaskWeb.ItemView do
   end
 
   def render("show.json", %{item: item}) do
+    item = item |> Repo.preload(:category)
     %{data: render_one(item, ItemView, "item.json")}
   end
 
   def render("item.json", %{item: item}) do
-    item = item |> Repo.preload(:category)
-
     %{
       id:       item.id,
       name:     item.name,

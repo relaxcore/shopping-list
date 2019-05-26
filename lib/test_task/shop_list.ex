@@ -24,7 +24,7 @@ defmodule TestTask.ShopList do
   ########################################
 
   @doc """
-  Returns the list of items.
+  Returns the filtered list of items.
 
   ## Examples
 
@@ -32,8 +32,11 @@ defmodule TestTask.ShopList do
       [%Item{}, ...]
 
   """
-  def list_items do
-    Repo.all(Item)
+  def list_items(params) do
+    Item
+    |> ItemFilters.filter(params)
+    |> Repo.all
+    |> Repo.preload(:category)
   end
 
   @doc """
