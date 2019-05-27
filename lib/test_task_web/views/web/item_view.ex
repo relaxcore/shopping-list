@@ -1,8 +1,8 @@
 defmodule TestTaskWeb.ItemView do
   use TestTaskWeb, :view
 
-  alias TestTaskWeb.{ItemView, CategoryView}
   alias TestTask.Repo
+  alias TestTaskWeb.{CategoryView, ItemView}
 
   def render("index.json", %{items: items}) do
     %{data: render_many(items, ItemView, "item.json")}

@@ -1,4 +1,4 @@
- defmodule ItemSorting do
+defmodule ItemSorting do
   import Ecto.Query
 
   alias String
@@ -20,7 +20,7 @@
   end
 
   def sort_params(params) do
-    raw_sort_params = Map.get(params, "sort") 
+    raw_sort_params = Map.get(params, "sort")
 
     if raw_sort_params do
       raw_sort_params

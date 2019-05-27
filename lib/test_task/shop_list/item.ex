@@ -41,6 +41,6 @@ defmodule TestTask.ShopList.Item do
   end
 
   defp category_ids do
-    (from c in Category, select: c.id) |> Repo.all
+    Repo.all(from c in Category, select: c.id)
   end
 end

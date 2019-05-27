@@ -15,7 +15,7 @@ defmodule ItemFilters do
   end
 
   defp already_bought(query, bought) do
-    unless cast(:boolean, bought) == :error  do
+    if cast(:boolean, bought) == {:ok, true}  do
       query
       |> where([item], item.bought == ^bought)
     else
@@ -30,6 +30,8 @@ defmodule ItemFilters do
   end
 
   defp fetch_filters(params) do
-    Map.take(params, ["filter"]) |> Map.get("filter") || %{}
+    params
+    |> Map.take(["filter"])
+    |> Map.get("filter") || %{}
   end
 end

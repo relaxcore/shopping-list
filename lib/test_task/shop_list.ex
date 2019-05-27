@@ -4,9 +4,9 @@ defmodule TestTask.ShopList do
   """
 
   import Ecto.Query, warn: false
-  alias TestTask.Repo
 
-  alias TestTask.ShopList.{Item, Category}
+  alias TestTask.Repo
+  alias TestTask.ShopList.{Category, Item}
 
   @doc """
   Returns the list of categories.
@@ -55,14 +55,12 @@ defmodule TestTask.ShopList do
 
   """
   def get_item(id) do
-    try do
-      case Repo.get(Item, id) do
-        %Item{} = item -> item
-        nil -> {:error, :not_found}
-      end
-    rescue
-      Ecto.Query.CastError -> {:error, :not_found} # need for UUID cast bug
+    case Repo.get(Item, id) do
+      %Item{} = item -> item
+      nil -> {:error, :not_found}
     end
+  rescue
+    Ecto.Query.CastError -> {:error, :not_found} # need for UUID cast bug
   end
 
   @doc """
