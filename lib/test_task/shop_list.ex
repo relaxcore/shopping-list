@@ -34,7 +34,8 @@ defmodule TestTask.ShopList do
   """
   def list_items(params) do
     Item
-    |> ItemFilters.filter(params)
+    |> ItemFilters.call(params)
+    |> ItemSorting.call(params)
     |> Repo.all
     |> Repo.preload(:category)
   end

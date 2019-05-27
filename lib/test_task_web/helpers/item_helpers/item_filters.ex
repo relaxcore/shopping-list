@@ -2,7 +2,7 @@ defmodule ItemFilters do
   import Ecto.Query
   import Ecto.Type
 
-  def filter(query, params) do
+  def call(query, params) do
     args = fetch_filters(params)
 
     Enum.reduce(args, query, fn {k, v}, query ->
