@@ -8,6 +8,12 @@ brew install elixir
 git@ssh.hub.teamvoy.com:block_compare/test-task.git
 cd test-task
 ```
+### Update ENV variables
+```shell
+cp .env.example .env
+# set all variables correctly
+source .env
+```
 ### Install dependencies and setup Ecto
 ```shell
 mix deps.get
