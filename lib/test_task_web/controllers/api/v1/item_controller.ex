@@ -30,10 +30,11 @@ defmodule TestTaskWeb.ItemController do
     id = item_params |> get_in(["id"])
 
     with %Item{} = item <- ShopList.get_item(id) do
-      ShopList.update_item(item, item_params)
-      conn
-      |> put_status(:ok)
-      |> render("show.json", item: item)
+      with {:ok, %Item{} = updated_item} <- ShopList.update_item(item, item_params) do
+        conn
+        |> put_status(:ok)
+        |> render("show.json", item: updated_item)
+      end
     end
   end
 

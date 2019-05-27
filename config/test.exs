@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :test_task, TestTask.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("PG_LOGIN"),
+  password: System.get_env("PG_PASSWORD"),
   database: "test_task_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
