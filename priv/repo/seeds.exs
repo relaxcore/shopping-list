@@ -24,7 +24,8 @@ items = [
   %Item{
     name: "Coca-Cola",
     price: 2.5,
-    category_id: beverages_id
+    category_id: beverages_id,
+    bought: true
   },
   %Item{
     name: "Beer",
@@ -34,7 +35,8 @@ items = [
   %Item{
     name: "Rice",
     price: 5.0,
-    category_id: groceries_id
+    category_id: groceries_id,
+    bought: true
   },
   %Item{
     name: "Barbecue sauce",
@@ -44,7 +46,8 @@ items = [
   %Item{
     name: "Shampoo",
     price: 7.0,
-    category_id: personal_care_id
+    category_id: personal_care_id,
+    bought: true
   },
   %Item{
     name: "Toothbrush",

@@ -15,7 +15,7 @@ defmodule ItemFilters do
   end
 
   defp already_bought(query, bought) do
-    if cast(:boolean, bought) == {:ok, true}  do
+    if cast(:boolean, bought) in [{:ok, true}, {:ok, false}]  do
       query
       |> where([item], item.bought == ^bought)
     else
