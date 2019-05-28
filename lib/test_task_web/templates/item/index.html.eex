@@ -1,0 +1,58 @@
+<section class="row">
+  <div class="column">
+    <div class="list">
+      <div class="items">
+        <div class="list-header">
+          <div class="create-buttons">
+            <a href="#" class="new-category">New category</a>
+            <a href="#" class="new-item">New shop item</a>
+          </div>
+        </div>
+        <div class="filters">
+          <div class="item-count">
+            <%= Enum.count(@items) %> items
+          </div>
+          <div class="category-filter">
+            Category:
+            <select>
+              <option selected disabled>Choose an option</option>
+              <option value="1">Groceries</option>
+              <option value="2">Beverages</option>
+              <option value="3">Personal Care</option>
+            </select>
+          </div>
+        </div>
+        <div class=sorting>
+          <a class="name-sorting fas fa-sort"></a>
+          <a class="price-sorting fas fa-sort"></a>
+        </div>
+        <%= for item <- @items do %>
+          <%= case item.category.name do %>
+            <% "Groceries" -> %>
+              <div class="item-category">
+                <img src="https://img.icons8.com/color/48/000000/grocery-bag.png">
+              </div>
+            <% "Beverages" -> %>
+              <div class="item-category">
+                <img src="https://img.icons8.com/color/48/000000/bottle-of-water.png">
+              </div>
+            <% "Personal Care" -> %>
+              <div class="item-category">
+                <img src="https://img.icons8.com/color/48/000000/electric-toothbrush.png">
+              </div>
+            <% _ -> %>
+          <% end %>
+          <%= if item.bought do %>
+            <input type="checkbox" class="checkbox" checked="true">
+          <% else %>
+            <input type="checkbox" class="checkbox">
+          <% end %>
+          <div class="item">
+            <span class="name"><%= item.name %></span>
+            <span class="price"><%= item.price %> $</span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

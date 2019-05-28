@@ -1,4 +1,4 @@
-defmodule TestTaskWeb.ItemController do
+defmodule TestTaskWeb.Api.V1.ItemController do
   use TestTaskWeb, :controller
 
   alias TestTask.ShopList

@@ -15,7 +15,7 @@ config :test_task,
 config :test_task, TestTaskWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
-  render_errors: [view: TestTaskWeb.ErrorView, accepts: ~w(json)],
+  render_errors: [view: TestTaskWeb.ErrorView, accepts: ~w(json html)],
   pubsub: [name: TestTask.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

@@ -30,3 +30,5 @@ test_task-*.tar
 .elixir_ls
 
 .env
+
+/assets/node_modules
