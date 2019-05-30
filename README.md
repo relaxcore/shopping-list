@@ -1,3 +1,6 @@
+# Heroku link
+[`https://block-compare-test-app.herokuapp.com`](https://block-compare-test-app.herokuapp.com)
+
 # Project Setup
 ### Install Elixir
 ```shell
