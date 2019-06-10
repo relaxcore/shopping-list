@@ -8,8 +8,8 @@ brew install elixir
 ```
 ### Clone the repository
 ```shell
-git@ssh.hub.teamvoy.com:block_compare/test-task.git
-cd test-task
+git@github.com:relaxcoredev/shopping-list.git
+cd shopping-list
 ```
 ### Update ENV variables
 ```shell
